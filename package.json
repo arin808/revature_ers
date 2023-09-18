@@ -1,0 +1,14 @@
+{
+  "name": "revature_ers",
+  "version": "1.0.0",
+  "description": "Foundations Project - Expense Reimbursement System",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Arin Aihara",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
