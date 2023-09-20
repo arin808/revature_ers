@@ -15,8 +15,26 @@ function getAllTickets() {
     return docClient.scan(params).promise();
 }
 
+// Function to view all pending tickets 
+function getPendingTickets() {
+    // Create params object for DynamoDB query
+    const params = {
+        TableName: 'tickets',
+        FilterExpression: '#s = :value',
+        ExpressionAttributeNames: {
+            '#s': 'status'
+        },
+        ExpressionAttributeValues: {
+            ':value': 'Pending'
+        }
+    };
+    return docClient.scan(params).promise();
+}
+
 // Function to view all tickets by an employee
 function getMyTickets(requester_id) {
+    // Create params object for DynamoDB query
+    // Utilize one paramater (requester_id) to find all tickets by an employee
     const params = {
         TableName: 'tickets',
         FilterExpression: '#i = :value',
@@ -52,6 +70,8 @@ function submitTicket(ticket) {
 
 // Manager function to approve a ticket by id
 function approveTicket(ticket_id){
+    // Create params object for DynamoDB query
+    // Utilize update expression to change status to approved
     const params = {
         TableName: 'tickets',
         Key: {
@@ -69,6 +89,8 @@ function approveTicket(ticket_id){
 }
 // Manager function to deny a ticket by id
 function denyTicket(ticket_id){
+    // Create params object for DynamoDB query
+    // Utilize update expression to change status to denied
     const params = {
         TableName: 'tickets',
         Key: {
@@ -87,6 +109,7 @@ function denyTicket(ticket_id){
 
 module.exports = {
     getAllTickets,
+    getPendingTickets,
     getMyTickets,
     getTicketById,
     submitTicket,

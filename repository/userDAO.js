@@ -1,3 +1,4 @@
+// Configure AWS DynamoDB connection
 const AWS = require('aws-sdk');
 
 AWS.config.update({
@@ -18,6 +19,8 @@ function createUser(user) {
 
 // Find user to see if username is taken 
 function getUsername(username) {
+    // Create params object for DynamoDB query
+    // Utilize one paramater (username) to find a user
     const params = {
         TableName: 'users',
         FilterExpression: '#u = :value',
@@ -33,6 +36,8 @@ function getUsername(username) {
 
 // Find a user (login)
 function getUser(username, password){
+    // Create params object for DynamoDB query
+    // Utilize two paramaters (username, password) to find a user
     const params = {
         TableName: 'users',
         FilterExpression: '#u = :value1 AND #p = :value2',
