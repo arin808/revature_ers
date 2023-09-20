@@ -1,8 +1,9 @@
+// Express router for all paths
 const express = require ('express');
 const router = express.Router();
 const uuid = require('uuid');
 
-
+// Imports for function calls
 const mw = require('../util/middleware.js');
 const userDAO = require('../repository/userDAO.js');
 const ticketDAO = require('../repository/ticketDAO.js');
