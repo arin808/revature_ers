@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
 const router = require('./routes/router.js');
-const mw = require('./util/middleware.js');
+const mw = require('./utility/middleware.js');
 
 app.use(mw.logRequest);
 app.use('/ers', router);

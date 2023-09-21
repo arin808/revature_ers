@@ -1,0 +1,15 @@
+2023-09-21T16:40:18.312Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/login
+2023-09-21T16:42:07.857Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/login
+2023-09-21T16:42:54.191Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/login
+2023-09-21T18:17:19.261Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/login
+2023-09-21T18:24:52.539Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/login
+2023-09-21T18:25:28.101Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/login
+2023-09-21T18:25:48.015Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/login
+2023-09-21T18:33:21.590Z [info]: Method: GET | URL accessed: http://localhost:3000/ers/pendingTickets
+2023-09-21T18:33:45.429Z [info]: Method: GET | URL accessed: http://localhost:3000/ers/pendingTickets
+2023-09-21T18:34:04.407Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/login
+2023-09-21T18:34:43.598Z [info]: Method: GET | URL accessed: http://localhost:3000/ers/pendingTickets
+2023-09-21T18:35:47.731Z [info]: Method: GET | URL accessed: http://localhost:3000/ers/pendingTickets
+2023-09-21T18:37:33.203Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/approveTicket/6759de88-fd48-4d38-b8c1-c4781f5ba472
+2023-09-21T18:48:21.902Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/approveTicket/6759de88-fd48-4d38-b8c1-c4781f5ba472
+2023-09-21T18:48:26.658Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/denyTicket/6759de88-fd48-4d38-b8c1-c4781f5ba474

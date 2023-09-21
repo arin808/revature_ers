@@ -4,10 +4,10 @@ const router = express.Router();
 const uuid = require('uuid');
 
 // Imports for function calls
-const mw = require('../util/middleware.js');
+const mw = require('../utility/middleware.js');
 const userDAO = require('../repository/userDAO.js');
 const ticketDAO = require('../repository/ticketDAO.js');
-
+const jwtUtil = require('../utility/jwtUtil.js');
 // Root path
 router.get('/', (req, res) => {
     res.send('Hello World!');
@@ -32,7 +32,7 @@ router.post('/register', mw.validateUser, (req, res) => {
                     user_id: uuid.v4(), 
                     username: body.username, 
                     password: body.password, 
-                    isFinancialManager: false
+                    role: 'Employee'
                 }
                 userDAO.createUser(user).then((data) => {
                     res.status(201);
@@ -57,9 +57,15 @@ router.post('/login', (req, res) => {
     userDAO.getUser(body.username, body.password).then((data) => {
         // If result is returned, login success, else failure
         if(data.Count == 1){
+            const user = data.Items[0];
+            const token = jwtUtil.createJWT(user.username, user.role);
+
             res.status(200);
-            res.send("Login success!");
-        } else{
+            res.send({ 
+                message: "Login success!",
+                token: token
+            });
+        }else{
             res.status(400);
             res.send('Invalid username or password');
         }
@@ -83,13 +89,30 @@ router.get('/allTickets', (req, res) => {
 
 // Path to view all pending tickets
 router.get('/pendingTickets', (req, res) => {
-    // Call dao function to get all pending tickets
-    // If successful, send data, else log error
-    ticketDAO.getPendingTickets().then((data) => {
-        res.status(200);
-        res.send(data.Items);
+    // Verify token and ensure user is a manager
+    const token = req.headers.authorization.split(' ')[1];
+    jwtUtil.verifyJWT(token).then((payload) => {
+        if(payload.role == 'Manager'){
+            // Call dao function to get all pending tickets
+            // If successful, send data, else log error
+            ticketDAO.getPendingTickets().then((data) => {
+                const tickets = JSON.stringify(data.Items);
+                res.status(200);
+                // Welcome user and print tickets
+                res.send(`Welcome ${payload.username}, ${tickets}`);
+            // If finding tickets fails, send error
+            }).catch((err) => {
+                console.log(err);
+            });
+        // If user is not a manager, forbid access
+        }else{
+            res.status(403);
+            res.send(`Forbidden: you are not a manager, you are an ${payload.role}`);
+        }
+    // If token verification fails, send error
     }).catch((err) => {
         console.log(err);
+        res.status(401).send({ message: "Failed to authenticate token."});
     });
 });
 
@@ -136,51 +159,83 @@ router.post('/submitTicket', mw.validateTicket, (req, res) => {
 });
 // Manager path to approve a ticket by id
 router.put('/approveTicket/:id',(req, res) => {
-    // Assign id from request param to local variable
-    const id = req.params.id;
-    // Call dao function to get ticket by id
-    // If successful, check if ticket is pending else log error
-    ticketDAO.getTicketById(id).then((data) => {
-        if(data.Item.status == 'Pending'){
-            // If ticket is pending, call dao function to approve ticket
-            // If successful, send success message, else log error
-            ticketDAO.approveTicket(id).then((data) => {
-                res.status(200);
-                res.send('Ticket approved');
+    // Verify token and ensure user is a manager
+    const token = req.headers.authorization.split(' ')[1];
+    jwtUtil.verifyJWT(token).then((payload) => {
+        if(payload.role == 'Manager'){
+            // Assign id from request param to local variable
+            const id = req.params.id;
+            // Call dao function to get ticket by id
+            // If successful, check if ticket is pending else log error
+            ticketDAO.getTicketById(id).then((data) => {
+                if(data.Item.status == 'Pending'){
+                    // If ticket is pending, call dao function to approve ticket
+                    // If successful, send success message, else log error
+                    ticketDAO.approveTicket(id).then((data) => {
+                        res.status(200);
+                        res.send('Ticket approved');
+                    }).catch((err) => {
+                        console.log(err);
+                    });
+                // If ticket isn't pending, send error
+                }else{
+                    res.status(400);
+                    res.send('Ticket must be pending');
+                }
+            // If ticket isn't found, send error
             }).catch((err) => {
                 console.log(err);
             });
+        // If user is not a manager, forbid access
         }else{
-            res.status(400);
-            res.send('Ticket must be pending');
+            res.status(403);
+            res.send(`Forbidden: you are not a manager, you are an ${payload.role}`);
         }
+        // If token verification fails, send error
     }).catch((err) => {
         console.log(err);
+        res.status(401).send({ message: "Failed to authenticate token."});
     });
 });
 
-// Manager path to deny a ticket by id
-router.put('/denyTicket/:id', (req, res) => {
-    // Assign id from request param to local variable
-    const id = req.params.id;
-    // Call dao function to get ticket by id
-    // If successful, check if ticket is pending else log error
-    ticketDAO.getTicketById(id).then((data) => {
-        // If ticket is pending, call dao function to deny ticket
-        // If successful, send success message, else log error
-        if(data.Item.status == 'Pending'){
-            ticketDAO.denyTicket(id).then((data) => {
-                res.status(200);
-                res.send('Ticket denied');
+// Manager path to approve a ticket by id
+router.put('/denyTicket/:id',(req, res) => {
+    // Verify token and ensure user is a manager
+    const token = req.headers.authorization.split(' ')[1];
+    jwtUtil.verifyJWT(token).then((payload) => {
+        if(payload.role == 'Manager'){
+            // Assign id from request param to local variable
+            const id = req.params.id;
+            // Call dao function to get ticket by id
+            // If successful, check if ticket is pending else log error
+            ticketDAO.getTicketById(id).then((data) => {
+                if(data.Item.status == 'Pending'){
+                    // If ticket is pending, call dao function to approve ticket
+                    // If successful, send success message, else log error
+                    ticketDAO.denyTicket(id).then((data) => {
+                        res.status(200);
+                        res.send('Ticket denied');
+                    }).catch((err) => {
+                        console.log(err);
+                    });
+                // If ticket isn't pending, send error
+                }else{
+                    res.status(400);
+                    res.send('Ticket must be pending');
+                }
+            // If ticket isn't found, send error
             }).catch((err) => {
                 console.log(err);
             });
+        // If user is not a manager, forbid access
         }else{
-            res.status(400);
-            res.send('Ticket must be pending');
+            res.status(403);
+            res.send(`Forbidden: you are not a manager, you are an ${payload.role}`);
         }
+        // If token verification fails, send error
     }).catch((err) => {
         console.log(err);
+        res.status(401).send({ message: "Failed to authenticate token."});
     });
 });
 

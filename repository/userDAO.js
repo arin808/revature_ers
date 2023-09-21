@@ -49,7 +49,6 @@ function getUser(username, password){
             ':value1': username,
             ':value2': password
         },
-        Limit: 1
     };
     return docClient.scan(params).promise();
 }
