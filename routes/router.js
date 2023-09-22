@@ -42,6 +42,7 @@ router.post('/register', mw.validateUser, (req, res) => {
                 });
             }
         });
+    // If body is invalid, send error   
     }else{
             res.status(400);
             res.send('Invalid user data');
@@ -57,14 +58,16 @@ router.post('/login', (req, res) => {
     userDAO.getUser(body.username, body.password).then((data) => {
         // If result is returned, login success, else failure
         if(data.Count == 1){
+            // Create user from item in data
             const user = data.Items[0];
+            // Create token from user data
             const token = jwtUtil.createJWT(user.username, user.role);
-
             res.status(200);
             res.send({ 
                 message: "Login success!",
                 token: token
             });
+        // If matching user can't be found, send error
         }else{
             res.status(400);
             res.send('Invalid username or password');
@@ -157,35 +160,41 @@ router.post('/submitTicket', mw.validateTicket, (req, res) => {
         res.send('Invalid ticket data');
     }
 });
-// Manager path to approve a ticket by id
-router.put('/approveTicket/:id',(req, res) => {
+
+// Manager path to process a ticket by id
+router.put('/processTicket', mw.validateTicketStatus, (req, res) => {
     // Verify token and ensure user is a manager
     const token = req.headers.authorization.split(' ')[1];
     jwtUtil.verifyJWT(token).then((payload) => {
         if(payload.role == 'Manager'){
-            // Assign id from request param to local variable
-            const id = req.params.id;
-            // Call dao function to get ticket by id
-            // If successful, check if ticket is pending else log error
-            ticketDAO.getTicketById(id).then((data) => {
-                if(data.Item.status == 'Pending'){
-                    // If ticket is pending, call dao function to approve ticket
-                    // If successful, send success message, else log error
-                    ticketDAO.approveTicket(id).then((data) => {
-                        res.status(200);
-                        res.send('Ticket approved');
-                    }).catch((err) => {
-                        console.log(err);
-                    });
-                // If ticket isn't pending, send error
-                }else{
-                    res.status(400);
-                    res.send('Ticket must be pending');
+            console.log(req.body);
+            // Assign id and status from request body to local variables
+            const ticket_id = req.body.ticket_id;
+            const status = req.body.status;
+            // Check if body is valid via middleware helper function
+            if(req.body.valid) {
+                // Call dao function to get ticket by id
+                // If successful, check if ticket is pending else log error
+                ticketDAO.getTicketById(ticket_id).then((data) => {
+                    if(data.Item.status == 'Pending'){
+                        // If ticket is pending, call dao function to approve ticket
+                        // If successful, send success message, else log error
+                        ticketDAO.processTicket(ticket_id, status).then((data) => {
+                            res.status(200);
+                            res.send('Ticket processed');
+                        }).catch((err) => {
+                            console.log(err);
+                        });
+                    // If ticket isn't pending, send error
+                    }else{
+                        res.status(400);
+                        res.send('Ticket must be pending');
                 }
-            // If ticket isn't found, send error
-            }).catch((err) => {
-                console.log(err);
-            });
+                // If ticket isn't found, send error
+                }).catch((err) => {
+                    res.send(err);
+                });
+            }
         // If user is not a manager, forbid access
         }else{
             res.status(403);
@@ -198,46 +207,4 @@ router.put('/approveTicket/:id',(req, res) => {
     });
 });
 
-// Manager path to approve a ticket by id
-router.put('/denyTicket/:id',(req, res) => {
-    // Verify token and ensure user is a manager
-    const token = req.headers.authorization.split(' ')[1];
-    jwtUtil.verifyJWT(token).then((payload) => {
-        if(payload.role == 'Manager'){
-            // Assign id from request param to local variable
-            const id = req.params.id;
-            // Call dao function to get ticket by id
-            // If successful, check if ticket is pending else log error
-            ticketDAO.getTicketById(id).then((data) => {
-                if(data.Item.status == 'Pending'){
-                    // If ticket is pending, call dao function to approve ticket
-                    // If successful, send success message, else log error
-                    ticketDAO.denyTicket(id).then((data) => {
-                        res.status(200);
-                        res.send('Ticket denied');
-                    }).catch((err) => {
-                        console.log(err);
-                    });
-                // If ticket isn't pending, send error
-                }else{
-                    res.status(400);
-                    res.send('Ticket must be pending');
-                }
-            // If ticket isn't found, send error
-            }).catch((err) => {
-                console.log(err);
-            });
-        // If user is not a manager, forbid access
-        }else{
-            res.status(403);
-            res.send(`Forbidden: you are not a manager, you are an ${payload.role}`);
-        }
-        // If token verification fails, send error
-    }).catch((err) => {
-        console.log(err);
-        res.status(401).send({ message: "Failed to authenticate token."});
-    });
-});
-
-    
 module.exports = router;

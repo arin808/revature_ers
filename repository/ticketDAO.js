@@ -68,10 +68,10 @@ function submitTicket(ticket) {
     return docClient.put(params).promise();
 }
 
-// Manager function to approve a ticket by id
-function approveTicket(ticket_id){
+// Manager function to provess a ticket by id
+function processTicket(ticket_id, status){
     // Create params object for DynamoDB query
-    // Utilize update expression to change status to approved
+    // Utilize update expression to change status to updated status
     const params = {
         TableName: 'tickets',
         Key: {
@@ -82,30 +82,12 @@ function approveTicket(ticket_id){
             '#s': 'status'
         },
         ExpressionAttributeValues: {
-            ':value': 'Approved'
+            ':value': status
         }
     };
     return docClient.update(params).promise();
 }
-// Manager function to deny a ticket by id
-function denyTicket(ticket_id){
-    // Create params object for DynamoDB query
-    // Utilize update expression to change status to denied
-    const params = {
-        TableName: 'tickets',
-        Key: {
-            'ticket_id': ticket_id
-        },
-        UpdateExpression: 'set #s = :value',
-        ExpressionAttributeNames: {
-            '#s': 'status'
-        },
-        ExpressionAttributeValues: {
-            ':value': 'Denied'
-        }
-    };
-    return docClient.update(params).promise();
-}
+
 
 module.exports = {
     getAllTickets,
@@ -113,6 +95,5 @@ module.exports = {
     getMyTickets,
     getTicketById,
     submitTicket,
-    approveTicket,
-    denyTicket
+    processTicket
 };

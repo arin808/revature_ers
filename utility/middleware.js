@@ -30,6 +30,29 @@ function validateTicket(req, res, next) {
     }
 }
 
+// Ensure that updated ticket status is valid
+function validateTicketStatus(req, res, next) {
+    // Check if all required fields are present
+    if(!req.body.ticket_id || !req.body.status) {
+        console.log(req.body.ticket_id, req.body.status)
+        // If not, send error and set valid to false
+        req.body.valid = false;
+        res.status(400);
+        res.send('Invalid ticket status data');
+        next();
+    } else if(req.body.status != 'Approved' || req.body.status != 'Denied'){
+        // If status is not 'Approved' or 'Denied', send error and set valid to false
+        req.body.valid = false;
+        res.status(400);
+        res.send(`Updated status must be 'Approved' or 'Denied'`);
+        next();
+    } else{
+        // If not, send error and set valid to false
+        req.body.valid = true;  
+        next();
+    }
+}
+    
 // Winston logger setup
 const { createLogger, transports, format} = require('winston');
 
@@ -57,5 +80,6 @@ function logRequest(req, res, next) {
 module.exports = {
     validateUser,
     validateTicket,
+    validateTicketStatus,
     logRequest
 };
