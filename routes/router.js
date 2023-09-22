@@ -151,9 +151,9 @@ router.get('/pendingTickets', (req, res) => {
 });
 
 // Path to view all tickets by an employee
-router.get('/myTickets/:id', (req, res) => {
-    // Assign id from request param to local variable
-    const id = req.params.id;
+router.get('/myTickets', (req, res) => {
+    // Assign id from request body to local variable
+    const id = req.body.id;
     // Call dao function to get all tickets by id
     // If successful, send data, else log error
     ticketDAO.getMyTickets(id).then((data) => {

@@ -37,3 +37,5 @@
 2023-09-22T15:56:39.360Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/submitTicket
 2023-09-22T15:58:39.934Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/submitTicket
 2023-09-22T16:02:19.764Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/submitTicket
+2023-09-22T21:50:47.629Z [info]: Method: GET | URL accessed: http://localhost:3000/ers/myTickets
+2023-09-22T21:50:47.985Z [info]: Tickets retrieved for user with id: a9a67b5f-8501-4c47-a793-e87e5dd77d55
