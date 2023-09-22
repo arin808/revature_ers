@@ -34,3 +34,6 @@
 2023-09-22T15:03:53.890Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/approveTicket
 2023-09-22T15:21:00.893Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/processTicket
 2023-09-22T15:21:36.606Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/processTicket
+2023-09-22T15:56:39.360Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/submitTicket
+2023-09-22T15:58:39.934Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/submitTicket
+2023-09-22T16:02:19.764Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/submitTicket

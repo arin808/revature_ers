@@ -4,8 +4,6 @@ function validateUser(req, res, next) {
     if(!req.body.username || !req.body.password) {
         // If not, send error and set valid to false
         req.body.valid = false;
-        res.status(400);
-        res.send('Invalid user data');
         next();
     } else{
         // If so, set valid to true
@@ -20,8 +18,6 @@ function validateTicket(req, res, next) {
     if(!req.body.requester_id || !req.body.amount || !req.body.description) {
         // If not, send error and set valid to false
         req.body.valid = false;
-        res.status(400);
-        res.send('Invalid ticket data');
         next();
     } else{
         // If so, set valid to true
@@ -37,14 +33,10 @@ function validateTicketStatus(req, res, next) {
         console.log(req.body.ticket_id, req.body.status)
         // If not, send error and set valid to false
         req.body.valid = false;
-        res.status(400);
-        res.send('Invalid ticket status data');
         next();
     } else if(req.body.status != 'Approved' || req.body.status != 'Denied'){
         // If status is not 'Approved' or 'Denied', send error and set valid to false
         req.body.valid = false;
-        res.status(400);
-        res.send(`Updated status must be 'Approved' or 'Denied'`);
         next();
     } else{
         // If not, send error and set valid to false
