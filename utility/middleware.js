@@ -34,13 +34,13 @@ function validateTicketStatus(req, res, next) {
         // If not, send error and set valid to false
         req.body.valid = false;
         next();
-    } else if(req.body.status != 'Approved' || req.body.status != 'Denied'){
-        // If status is not 'Approved' or 'Denied', send error and set valid to false
-        req.body.valid = false;
+    } else if(req.body.status === "Approved" || req.body.status === "Denied"){
+        // Ensure status is set to "Approved" or "Denied"
+        req.body.valid = true;
         next();
     } else{
         // If not, send error and set valid to false
-        req.body.valid = true;  
+        req.body.valid = false;  
         next();
     }
 }

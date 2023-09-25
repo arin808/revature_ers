@@ -208,10 +208,12 @@ router.put('/processTicket', mw.validateTicketStatus, (req, res) => {
             const status = req.body.status;
             // Check if body is valid via middleware helper function
             if(req.body.valid) {
+                console.log("check3");
                 // Call dao function to get ticket by id
                 // If successful, check if ticket is pending else log error
                 ticketDAO.getTicketById(ticket_id).then((data) => {
                     if(data.Item.status == 'Pending'){
+                        console.log("check4");
                         // If ticket is pending, call dao function to approve ticket
                         // If successful, send success message, else log error
                         ticketDAO.processTicket(ticket_id, status).then((data) => {
@@ -233,6 +235,11 @@ router.put('/processTicket', mw.validateTicketStatus, (req, res) => {
                     res.send(err);
                     logger.error(`Error retrieving ticket: ${err}`);
                 });
+            // If body is invalid, send error
+            }else{
+                res.status(400);
+                res.send('Invalid ticket status');
+                logger.error("Invalid ticket status submitted");
             }
         // If user is not a manager, forbid access
         }else{

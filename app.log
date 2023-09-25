@@ -39,3 +39,24 @@
 2023-09-22T16:02:19.764Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/submitTicket
 2023-09-22T21:50:47.629Z [info]: Method: GET | URL accessed: http://localhost:3000/ers/myTickets
 2023-09-22T21:50:47.985Z [info]: Tickets retrieved for user with id: a9a67b5f-8501-4c47-a793-e87e5dd77d55
+2023-09-25T14:09:50.186Z [info]: Method: GET | URL accessed: http://localhost:3000/ers/pendingTickets
+2023-09-25T14:09:50.204Z [error]: Error in verifiying token: TokenExpiredError: jwt expired
+2023-09-25T14:09:59.100Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/login
+2023-09-25T14:09:59.386Z [info]: test1 logged in.
+2023-09-25T14:10:47.157Z [info]: Method: GET | URL accessed: http://localhost:3000/ers/pendingTickets
+2023-09-25T14:10:47.162Z [error]: Error: user: test1 does not have permission to view pending tickets
+2023-09-25T14:11:14.169Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/login
+2023-09-25T14:11:14.384Z [info]: test logged in.
+2023-09-25T14:11:35.948Z [info]: Method: GET | URL accessed: http://localhost:3000/ers/pendingTickets
+2023-09-25T14:11:36.151Z [info]: Pending tickets retrieved by test
+2023-09-25T14:12:32.877Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/processTicket
+2023-09-25T14:13:03.052Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/processTicket
+2023-09-25T14:14:16.193Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/processTicket
+2023-09-25T14:16:15.421Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/processTicket
+2023-09-25T14:17:19.311Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/processTicket
+2023-09-25T14:18:22.581Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/processTicket
+2023-09-25T14:19:32.889Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/processTicket
+2023-09-25T14:20:29.828Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/processTicket
+2023-09-25T14:21:05.541Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/processTicket
+2023-09-25T14:22:00.678Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/processTicket
+2023-09-25T14:22:01.104Z [info]: Ticket with id: 6759de88-fd48-4d38-b8c1-c4781f5ba41 processed
