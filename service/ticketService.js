@@ -110,16 +110,11 @@ function processTicket(id, status, role){
     // Log access
     logger.info('Ticket service layer accessed: processTicket');
     // Check to ensure user is a manager
-    if(role != 'Manager'){
-        return new Promise.reject({message: 'Action forbidden: user is not a manager'});
-    }
-    // Check to see if status of ticket is Pending
-    const currentStatus = ticketDAO.getTicketById(id).status;
-    if(currentStatus != 'Pending'){
-        return new Promise.reject({message: 'Action forbidden: ticket is not pending'});
-    }
     // Call DAO layer to update ticket status
     return new Promise((resolve, reject) => {
+        if(role != 'Manager'){
+            reject({message: 'Action forbidden: user is not a manager'});
+        }  
         ticketDAO.processTicket(id, status).then((data) => {
             // If successful, resolve promise with data
             logger.info('Ticket processed successfully')

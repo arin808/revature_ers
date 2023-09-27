@@ -1,0 +1,18 @@
+2023-09-27T19:07:32.669Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/tickets/process/9db4eb1c-c2ff-4ad2-8519-f0f4e0ab81f3
+2023-09-27T19:07:32.687Z [error]: Error in verifiying token: TokenExpiredError: jwt expired
+2023-09-27T19:07:39.166Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/user/login
+2023-09-27T19:07:39.167Z [info]: User service layer accessed: loginUser
+2023-09-27T19:07:39.424Z [info]: User logged in
+2023-09-27T19:07:39.427Z [info]: User with username: test logged in
+2023-09-27T19:08:33.150Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/tickets/process/9db4eb1c-c2ff-4ad2-8519-f0f4e0ab81f3
+2023-09-27T19:08:33.152Z [info]: Ticket service layer accessed: processTicket
+2023-09-27T19:08:33.160Z [error]: Error in verifiying token: TypeError: Promise.reject is not a constructor
+2023-09-27T19:11:06.998Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/tickets/process/9db4eb1c-c2ff-4ad2-8519-f0f4e0ab81f3
+2023-09-27T19:11:07.007Z [info]: Ticket service layer accessed: processTicket
+2023-09-27T19:11:07.108Z [error]: Error processing ticket: [object Object]
+2023-09-27T19:11:07.298Z [info]: Ticket processed successfully
+2023-09-27T19:14:09.722Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/tickets/process/9db4eb1c-c2ff-4ad2-8519-f0f4e0ab81f3
+2023-09-27T19:14:09.729Z [info]: Ticket service layer accessed: processTicket
+2023-09-27T19:14:09.982Z [info]: Ticket processed successfully
+2023-09-27T19:15:55.465Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/tickets/process/9db4eb1c-c2ff-4ad2-8519-f0f4e0ab81f3
+2023-09-27T19:15:55.480Z [info]: Ticket service layer accessed: processTicket
