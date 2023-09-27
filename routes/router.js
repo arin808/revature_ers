@@ -1,31 +1,12 @@
 // Express router for all paths
 const express = require ('express');
 const router = express.Router();
-const uuid = require('uuid');
 
 // Imports for function calls
 const mw = require('../utility/middleware.js');
 const userService = require('../service/userService.js');
 const ticketService = require('../service/ticketService.js');
 const jwtUtil = require('../utility/jwtUtil.js');
-
-// Winston logger setup
-const { createLogger, transports, format} = require('winston');
-
-// Create the logger
-const logger = createLogger({
-    level: 'info', 
-    format: format.combine(
-        format.timestamp(),
-        format.printf(({timestamp, level, message}) => {
-            return `${timestamp} [${level}]: ${message}`;
-        })
-    ),
-    transports: [
-        new transports.Console(), // log to the console
-        new transports.File({ filename: 'app.log'}), // log to a file
-    ]
-})
 
 // Root path
 router.get('/', (req, res) => {
@@ -43,14 +24,12 @@ router.post('/user/register', mw.validateUser, (req, res) => {
         if(data){
             res.status(201);
             res.send({message: 'User created'});
-            logger.info(`User created: ${body}`);
         }else{
             res.status(400);
             res.send({message: 'User not created, user already exists'});
-            logger.error(`User not created: ${body}`);
         }
     }).catch((err) => {
-        logger.error(`Error registering user: ${err}`);
+        res.status(500).send({message: `Error registering user: ${err}`});
     });
 });
 
@@ -59,7 +38,6 @@ router.post('/user/login', (req, res) => {
     // Assign body of request to local variable
     const body = req.body;
     userService.loginUser(body.username, body.password).then((data) => {
-        logger.info(`User with username: ${body.username} logged in`);
         res.status(200);
         res.send({message: 'Login successful', token: data});
     }).catch((err) => {
