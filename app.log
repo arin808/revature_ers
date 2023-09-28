@@ -1,0 +1,16 @@
+2023-09-28T18:37:49.251Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/user/register
+2023-09-28T18:37:49.253Z [info]: User service layer accessed: registerUser
+2023-09-28T18:37:49.614Z [info]: User created
+2023-09-28T18:37:53.616Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/user/register
+2023-09-28T18:37:53.617Z [info]: User service layer accessed: registerUser
+2023-09-28T18:37:53.726Z [error]: Username already exists
+2023-09-28T18:39:25.211Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/user/register
+2023-09-28T18:39:25.214Z [info]: User service layer accessed: registerUser
+2023-09-28T18:39:25.470Z [error]: Username already exists
+2023-09-28T18:40:44.172Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/user/register
+2023-09-28T18:40:44.175Z [info]: User service layer accessed: registerUser
+2023-09-28T18:40:44.462Z [error]: Username already exists
+2023-09-28T18:40:51.732Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/user/register
+2023-09-28T18:40:51.734Z [info]: User service layer accessed: registerUser
+2023-09-28T18:40:51.912Z [error]: Username already exists
+2023-09-28T18:41:41.721Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/user/register

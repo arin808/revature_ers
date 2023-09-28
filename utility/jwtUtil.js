@@ -6,7 +6,7 @@ function createJWT(username, role){
         username,
         role
     }, 'mysecretkey0310', {
-        expiresIn: '24h'
+        expiresIn: "2 days"
     })
 };
 

@@ -21,15 +21,11 @@ router.post('/user/register', mw.validateUser, (req, res) => {
     // Call service layer to register user
     userService.registerUser(body).then((data) => {
         // If successful, send success message, else log error
-        if(data){
-            res.status(201);
-            res.send({message: 'User created'});
-        }else{
-            res.status(400);
-            res.send({message: 'User not created, user already exists'});
-        }
+        res.status(201);
+        res.send({message: 'User created'});
+
     }).catch((err) => {
-        res.status(500).send({message: `Error registering user: ${err}`});
+        res.send({message: 'User not created, user already exists'});
     });
 });
 

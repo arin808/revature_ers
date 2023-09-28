@@ -4,7 +4,6 @@ function validateUser(req, res, next) {
     if(!req.body.username || !req.body.password) {
         // If not, send error and set valid to false
         res.status(400).send({ message:"Username and password are required"});
-        next();
     } else{
         // Move on
         next();
@@ -17,7 +16,7 @@ function validateTicket(req, res, next) {
     if(!req.body.requester_id || !req.body.amount || !req.body.description) {
         // If not, send error and set valid to false
         res.status(400).send({ message:"Requester ID, amount, and description are required fields"});
-        next();
+
     } else{
         // Move on 
         next();
@@ -31,14 +30,12 @@ function validateTicketStatus(req, res, next) {
         console.log(req.body.ticket_id, req.body.status)
         // If not, send error 
         res.status(400).send({ message:"Ticket ID and status are required fields"});
-        next();
     } else if(req.body.status === "Approved" || req.body.status === "Denied"){
         // Move on if status is valid 
         next();
     } else{
         // If not, send error and set valid to false
         res.status(400).send({ message:"Status must be set to 'Approved' or 'Denied'"});
-        next();
     }
 }
     

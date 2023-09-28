@@ -29,9 +29,8 @@ async function registerUser(body){
     logger.info('User service layer accessed: registerUser');
     // Check if username is taken
     const retrieved = await userDAO.getUsername(body.username);
-    console.log(retrieved)
-    if(retrieved.Items.length === 0){
-        return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
+        if(retrieved.Items.length === 0){
             // Create user object
             const user = {
                 user_id: uuid.v4(),
@@ -50,11 +49,11 @@ async function registerUser(body){
                     reject(false);
                 }    
             });
+        }else{
+            logger.error('Username already exists');
+            reject(false);
+        }
         }); 
-    }else{
-        logger.error('Username already exists');
-        return false;
-    }
 }
 
 // Function to login users
