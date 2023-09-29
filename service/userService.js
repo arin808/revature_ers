@@ -70,7 +70,7 @@ async function loginUser(username, password){
                 resolve(token);
             }else{
                 logger.error('User not logged in');
-                reject(null);
+                reject('incorrect credentials');
             }
         });
     })

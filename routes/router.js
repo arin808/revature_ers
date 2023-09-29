@@ -23,14 +23,13 @@ router.post('/user/register', mw.validateUser, (req, res) => {
         // If successful, send success message, else log error
         res.status(201);
         res.send({message: 'User created'});
-
     }).catch((err) => {
         res.send({message: 'User not created, user already exists'});
     });
 });
 
 // Login path
-router.post('/user/login', (req, res) => {
+router.post('/user/login', mw.validateUser, (req, res) => {
     // Assign body of request to local variable
     const body = req.body;
     userService.loginUser(body.username, body.password).then((data) => {
@@ -38,7 +37,7 @@ router.post('/user/login', (req, res) => {
         res.send({message: 'Login successful', token: data});
     }).catch((err) => {
         res.status(401);
-        res.send({message: `Login failed: ${err}`});
+        res.send({message: `Login failed invalid credentials`});
     });
 });
 
@@ -71,7 +70,7 @@ router.get('/tickets/pending', (req, res) => {
             res.send({message: `Welcome ${payload.username}`, tickets: data.Items});
         // If finding tickets fails, send error
         }).catch((err) => {
-            res.status(500).send({message: `Error retrieving tickets: ${err}`});
+            res.status(500).send(err);
         });
     // If token verification fails, send error
     }).catch((err) => {

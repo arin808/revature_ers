@@ -17,6 +17,19 @@ function createUser(user) {
     return docClient.put(params).promise();
 }
 
+// Find user by ID to make sure it exists
+function getUserByID(user_id) {
+    // Create params object for DynamoDB query
+    // Utilize one paramater (user_id) to find a user
+    const params = {
+        TableName: 'users',
+        Key: {
+            'user_id': user_id
+        }
+    };
+    return docClient.get(params).promise();
+}
+
 // Find user to see if username is taken 
 function getUsername(username) {
     // Create params object for DynamoDB query
@@ -56,5 +69,6 @@ function getUser(username, password){
 module.exports = { 
     createUser, 
     getUser,
-    getUsername
+    getUsername,
+    getUserByID
 };

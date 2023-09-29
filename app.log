@@ -14,3 +14,126 @@
 2023-09-28T18:40:51.734Z [info]: User service layer accessed: registerUser
 2023-09-28T18:40:51.912Z [error]: Username already exists
 2023-09-28T18:41:41.721Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/user/register
+2023-09-28T18:42:39.346Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/user/register
+2023-09-28T18:42:39.350Z [info]: User service layer accessed: registerUser
+2023-09-28T18:42:39.619Z [error]: Username already exists
+2023-09-28T18:47:50.623Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/user/login
+2023-09-28T18:47:50.625Z [info]: User service layer accessed: loginUser
+2023-09-28T18:47:50.801Z [info]: User logged in
+2023-09-28T18:48:41.095Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/user/login
+2023-09-28T18:48:41.096Z [info]: User service layer accessed: loginUser
+2023-09-28T18:48:41.275Z [info]: User logged in
+2023-09-28T18:49:23.897Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/user/login
+2023-09-28T18:49:23.898Z [info]: User service layer accessed: loginUser
+2023-09-28T18:49:24.070Z [error]: User not logged in
+2023-09-28T18:50:13.801Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/user/login
+2023-09-28T18:50:13.803Z [info]: User service layer accessed: loginUser
+2023-09-28T18:50:14.082Z [error]: User not logged in
+2023-09-28T18:50:31.970Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/user/login
+2023-09-28T18:50:31.974Z [info]: User service layer accessed: loginUser
+2023-09-28T18:50:32.256Z [error]: User not logged in
+2023-09-28T19:02:46.973Z [info]: Method: GET | URL accessed: http://localhost:3000/ers/tickets/pending
+2023-09-28T19:02:46.984Z [info]: Ticket service layer accessed: getPendingTickets
+2023-09-28T19:02:51.572Z [info]: Method: GET | URL accessed: http://localhost:3000/ers/tickets/pending
+2023-09-28T19:02:51.575Z [info]: Ticket service layer accessed: getPendingTickets
+2023-09-28T19:02:51.813Z [info]: Pending tickets retrieved successfully
+2023-09-28T19:09:51.395Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/tickets/process/9db4eb1c-c2ff-4ad2-8519-f0f4e0ab81f3
+2023-09-28T19:09:51.399Z [info]: Ticket service layer accessed: processTicket
+2023-09-28T19:09:51.581Z [info]: Ticket processed successfully
+2023-09-28T19:10:12.997Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/tickets/process/66aab89e-bd0a-4bdd-b1f8-91b91d125c20
+2023-09-28T19:10:13.000Z [info]: Ticket service layer accessed: processTicket
+2023-09-28T19:10:13.169Z [info]: Ticket processed successfully
+2023-09-28T19:11:40.458Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/tickets/process/66aab89e-bd0a-4bdd-b1f8-91b91d125c20
+2023-09-28T19:11:40.461Z [info]: Ticket service layer accessed: processTicket
+2023-09-28T19:11:40.629Z [info]: Ticket processed successfully
+2023-09-28T19:14:56.891Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/tickets/process/66aab89e-bd0a-4bdd-b1f8-91b91d125c20
+2023-09-28T19:14:56.898Z [info]: Ticket service layer accessed: processTicket
+2023-09-28T19:14:57.322Z [info]: Ticket processed successfully
+2023-09-28T19:15:40.776Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/tickets/process/66aab89e-bd0a-4bdd-b1f8-91b91d125c20
+2023-09-28T19:15:40.791Z [info]: Ticket service layer accessed: processTicket
+2023-09-28T19:15:54.854Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/tickets/process/9db4eb1c-c2ff-4ad2-8519-f0f4e0ab81f3
+2023-09-28T19:15:54.857Z [info]: Ticket service layer accessed: processTicket
+2023-09-28T19:15:55.119Z [info]: Ticket processed successfully
+2023-09-28T19:16:08.625Z [info]: Method: GET | URL accessed: http://localhost:3000/ers/tickets/userTickets/a9a67b5f-8501-4c47-a793-e87e5dd77d55
+2023-09-28T19:16:08.626Z [info]: Ticket service layer accessed: getTicketsByUserID
+2023-09-28T19:16:08.892Z [info]: Tickets retrieved successfully
+2023-09-28T19:16:25.652Z [info]: Method: GET | URL accessed: http://localhost:3000/ers/tickets/userTickets/adfasdf
+2023-09-28T19:16:25.653Z [info]: Ticket service layer accessed: getTicketsByUserID
+2023-09-28T19:16:25.919Z [info]: Tickets retrieved successfully
+2023-09-28T19:59:19.639Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/user/register
+2023-09-28T19:59:19.641Z [info]: User service layer accessed: registerUser
+2023-09-28T19:59:19.918Z [error]: Username already exists
+2023-09-28T19:59:51.431Z [info]: Method: GET | URL accessed: http://localhost:3000/ers/tickets/userTickets/a9a67b5f-8501-4c47-a793-e87e5dd77d55
+2023-09-28T19:59:51.434Z [info]: Ticket service layer accessed: getTicketsByUserID
+2023-09-28T20:00:20.117Z [info]: Method: GET | URL accessed: http://localhost:3000/ers/tickets/userTickets/a9a67b5f-8501-4c47-a793-e87e5dd77d55
+2023-09-28T20:00:20.120Z [info]: Ticket service layer accessed: getTicketsByUserID
+2023-09-28T20:03:47.518Z [info]: Method: GET | URL accessed: http://localhost:3000/ers/tickets/userTickets/a9a67b5f-8501-4c47-a793-e87e5dd77d55
+2023-09-28T20:03:47.521Z [info]: Ticket service layer accessed: getTicketsByUserID
+2023-09-28T20:07:01.493Z [info]: Method: GET | URL accessed: http://localhost:3000/ers/tickets/userTickets/a9a67b5f-8501-4c47-a793-e87e5dd77d55
+2023-09-28T20:07:01.496Z [info]: Ticket service layer accessed: getTicketsByUserID
+2023-09-28T20:07:01.869Z [info]: Tickets retrieved successfully
+2023-09-28T20:08:28.335Z [info]: Method: GET | URL accessed: http://localhost:3000/ers/tickets/userTickets/a9a67b
+2023-09-28T20:08:28.338Z [info]: Ticket service layer accessed: getTicketsByUserID
+2023-09-28T20:09:12.732Z [info]: Method: GET | URL accessed: http://localhost:3000/ers/tickets/userTickets/a9a67b5f-8501-4c47-a793-e87e5dd77d55
+2023-09-28T20:09:12.733Z [info]: Ticket service layer accessed: getTicketsByUserID
+2023-09-28T20:09:13.012Z [info]: Tickets retrieved successfully
+2023-09-28T20:15:52.342Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/tickets/submit
+2023-09-28T20:21:35.772Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/tickets/submit
+2023-09-28T20:21:35.774Z [info]: Ticket service layer accessed: submitTicket
+2023-09-28T20:43:12.118Z [info]: Method: GET | URL accessed: http://localhost:3000/ers/tickets/all
+2023-09-28T20:43:12.120Z [info]: Ticket service layer accessed: getAllTickets
+2023-09-28T20:43:12.276Z [info]: Tickets retrieved successfully
+2023-09-28T20:43:15.048Z [info]: Method: GET | URL accessed: http://localhost:3000/ers/tickets/userTickets/a9a67b5f-8501-4c47-a793-e87e5dd77d55
+2023-09-28T20:43:15.049Z [info]: Ticket service layer accessed: getTicketsByUserID
+2023-09-28T20:43:15.308Z [info]: Tickets retrieved successfully
+2023-09-29T13:52:16.889Z [info]: Method: GET | URL accessed: http://localhost:3000/ers/tickets/all
+2023-09-29T13:52:16.891Z [info]: Ticket service layer accessed: getAllTickets
+2023-09-29T13:52:17.163Z [info]: Tickets retrieved successfully
+2023-09-29T13:52:20.970Z [info]: Method: GET | URL accessed: http://localhost:3000/ers/tickets/userTickets/a9a67b5f-8501-4c47-a793-e87e5dd77d55
+2023-09-29T13:52:20.972Z [info]: Ticket service layer accessed: getTicketsByUserID
+2023-09-29T13:52:21.161Z [info]: Tickets retrieved successfully
+2023-09-29T13:52:24.129Z [info]: Method: GET | URL accessed: http://localhost:3000/ers/tickets/userTickets/a9a67b5f-85
+2023-09-29T13:52:24.131Z [info]: Ticket service layer accessed: getTicketsByUserID
+2023-09-29T13:52:43.582Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/tickets/submit
+2023-09-29T13:52:43.583Z [info]: Ticket service layer accessed: submitTicket
+2023-09-29T13:53:02.580Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/tickets/submit
+2023-09-29T13:53:02.582Z [info]: Ticket service layer accessed: submitTicket
+2023-09-29T13:53:38.753Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/tickets/submit
+2023-09-29T13:53:38.756Z [info]: Ticket service layer accessed: submitTicket
+2023-09-29T13:53:56.144Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/tickets/submit
+2023-09-29T13:53:56.145Z [info]: Ticket service layer accessed: submitTicket
+2023-09-29T13:53:56.481Z [info]: Ticket submitted successfully
+2023-09-29T13:54:14.733Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/tickets/submit
+2023-09-29T13:54:20.036Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/tickets/submit
+2023-09-29T13:54:20.036Z [info]: Ticket service layer accessed: submitTicket
+2023-09-29T13:54:26.555Z [info]: Method: GET | URL accessed: http://localhost:3000/ers/tickets/pending
+2023-09-29T13:54:26.562Z [info]: Ticket service layer accessed: getPendingTickets
+2023-09-29T13:54:26.760Z [info]: Pending tickets retrieved successfully
+2023-09-29T13:54:32.536Z [info]: Method: GET | URL accessed: http://localhost:3000/ers/tickets/pending
+2023-09-29T13:54:32.538Z [info]: Ticket service layer accessed: getPendingTickets
+2023-09-29T13:55:00.407Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/tickets/process/66aab89e-bd0a-4bdd-b1f8-91b91d125c20
+2023-09-29T13:55:00.409Z [info]: Ticket service layer accessed: processTicket
+2023-09-29T13:55:00.582Z [info]: Ticket processed successfully
+2023-09-29T13:55:20.073Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/tickets/process/66aab89e-bd0a-4bdd-b1f8-91b91d125c20
+2023-09-29T13:55:20.075Z [info]: Ticket service layer accessed: processTicket
+2023-09-29T13:55:32.924Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/tickets/process/66aab89e-bd0a-4bdd-b1f8-91b91d125c20
+2023-09-29T13:55:32.927Z [info]: Ticket service layer accessed: processTicket
+2023-09-29T13:55:33.089Z [info]: Ticket processed successfully
+2023-09-29T13:55:59.123Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/user/register
+2023-09-29T13:55:59.124Z [info]: User service layer accessed: registerUser
+2023-09-29T13:55:59.392Z [info]: User created
+2023-09-29T13:56:02.772Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/user/register
+2023-09-29T13:56:02.772Z [info]: User service layer accessed: registerUser
+2023-09-29T13:56:02.874Z [error]: Username already exists
+2023-09-29T13:56:09.681Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/user/register
+2023-09-29T14:04:14.235Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/tickets/process/66aab89e-bd0a-4bdd-b1f8-91b91d125c20
+2023-09-29T14:04:14.238Z [info]: Ticket service layer accessed: processTicket
+2023-09-29T14:04:19.447Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/tickets/process/66aab89e-bd0a-4bdd-b1f8-91b91d125c20
+2023-09-29T14:04:19.449Z [info]: Ticket service layer accessed: processTicket
+2023-09-29T14:04:19.624Z [info]: Ticket processed successfully
+2023-09-29T14:07:24.446Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/tickets/process/66aab89e-bd0a-4bdd-b1f8-91b91d125c20
+2023-09-29T14:07:24.455Z [info]: Ticket service layer accessed: processTicket
+2023-09-29T14:07:57.405Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/tickets/process/66aab89e-bd0a-4bdd-b1f8-91b91d125c20
+2023-09-29T14:07:57.415Z [info]: Ticket service layer accessed: processTicket
+2023-09-29T14:11:25.381Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/user/login
+2023-09-29T14:11:25.382Z [info]: User service layer accessed: loginUser
