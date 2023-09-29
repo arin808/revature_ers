@@ -137,3 +137,4 @@
 2023-09-29T14:07:57.415Z [info]: Ticket service layer accessed: processTicket
 2023-09-29T14:11:25.381Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/user/login
 2023-09-29T14:11:25.382Z [info]: User service layer accessed: loginUser
+2023-09-29T14:12:35.109Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/user/login
