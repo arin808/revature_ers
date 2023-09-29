@@ -138,3 +138,15 @@
 2023-09-29T14:11:25.381Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/user/login
 2023-09-29T14:11:25.382Z [info]: User service layer accessed: loginUser
 2023-09-29T14:12:35.109Z [info]: Method: POST | URL accessed: http://localhost:3000/ers/user/login
+2023-09-29T14:49:56.510Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/tickets/process/6759de88-fd48-4d38-b8c1-c4781f5ba41
+2023-09-29T14:49:56.517Z [info]: Ticket service layer accessed: processTicket
+2023-09-29T14:50:29.220Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/tickets/process/6759de88-fd48-4d38-b8c1-c4781f5ba41
+2023-09-29T14:50:29.229Z [info]: Ticket service layer accessed: processTicket
+2023-09-29T14:50:59.015Z [info]: Method: GET | URL accessed: http://localhost:3000/ers/tickets/pending
+2023-09-29T14:50:59.019Z [info]: Ticket service layer accessed: getPendingTickets
+2023-09-29T14:50:59.194Z [info]: Pending tickets retrieved successfully
+2023-09-29T14:51:10.758Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/tickets/process/6759de88-fd48-4d38-b8c1-c4781f5ba41
+2023-09-29T14:51:10.761Z [info]: Ticket service layer accessed: processTicket
+2023-09-29T14:53:09.218Z [info]: Method: PUT | URL accessed: http://localhost:3000/ers/tickets/process/6759de88-fd48-4d38-b8c1-c4781f5ba41
+2023-09-29T14:53:09.228Z [info]: Ticket service layer accessed: processTicket
+2023-09-29T14:53:09.739Z [info]: Ticket processed successfully

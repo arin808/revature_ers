@@ -121,13 +121,13 @@ async function submitTicket(body){
 async function processTicket(id, status, role){
     // Log access
     logger.info('Ticket service layer accessed: processTicket');
-    const currentStatus = await ticketDAO.getTicketById(id);
+    const ticket = await ticketDAO.getTicketById(id);
     // Check to ensure user is a manager
     // Call DAO layer to update ticket status
     return new Promise((resolve, reject) => {
         if(role != 'Manager'){
             reject('Action forbidden: user is not a manager');
-        }if(currentStatus.Item.status != 'Pending'){
+        }if(ticket.Item.status != 'Pending'){
             reject('Action forbidden: ticket is not pending');
         }else{
             ticketDAO.processTicket(id, status).then((data) => {
